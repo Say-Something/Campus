@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- 首先定义标题栏 -->
+<RelativeLayout
+android:id="@+id/title_rl"
+android:layout_width="match_parent"
+android:layout_height="60dp"
+android:background="#FFF">
+<TextView
+    android:text="标题栏"
+    android:id="@+id/text_title"
+    android:textSize="24sp"
+    android:textColor="#000"
+    android:gravity="center"
+    android:singleLine="true"
+    android:ellipsize="marquee"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+<Button
+    android:layout_alignParentLeft="true"
+    android:layout_centerVertical="true"
+    android:id="@+id/button_backward"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:drawablePadding="6dp"
+    android:background="@drawable/back_arrow"
+    android:layout_marginLeft="5dp"
+    android:visibility="visible" />
+
+<Button
+    android:id="@+id/button_setting"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:layout_marginRight="5dp"
+    android:drawablePadding="6dp"
+    android:background="@mipmap/settings_img"
+
+    android:visibility="visible" />
+</RelativeLayout>
+<FrameLayout
+    android:visibility="gone"
+    android:id="@+id/content_fl"
+    android:layout_below="@+id/title_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@mipmap/no_msg"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</FrameLayout>
+</RelativeLayout>
