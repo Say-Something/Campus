@@ -51,7 +51,8 @@ public class TransactionActivity extends AppCompatActivity implements View.OnCli
             case R.id.button_setting :
                 Intent intent = new Intent();
                 intent.setClass(TransactionActivity.this,SettingActivity.class);
-                startActivity(intent);
+                intent.putExtra("class","TransactionActivity");
+                startActivityForResult(intent,0);
                 break;
         }
     }

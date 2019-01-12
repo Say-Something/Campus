@@ -48,7 +48,8 @@ public class AttendanceActivity extends AppCompatActivity implements View.OnClic
             case R.id.button_setting :
                 Intent intent = new Intent();
                 intent.setClass(AttendanceActivity.this,SettingActivity.class);
-                startActivity(intent);
+                intent.putExtra("class","AttendanceActivity");
+                startActivityForResult(intent,0);
                 break;
         }
     }

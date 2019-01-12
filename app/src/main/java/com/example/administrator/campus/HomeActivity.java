@@ -2,6 +2,7 @@ package com.example.administrator.campus;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -196,5 +197,5 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             CacheActivity.finishActivity();
         }
     }
-    //TODO 设置界面，已完成按钮，下一步添加记录完成监听事件
+    //TODO 设置界面，已完成按钮，添加记录，监听事件
 }

@@ -48,7 +48,8 @@ public class AnnouncementActivity extends AppCompatActivity implements View.OnCl
             case R.id.button_setting :
                 Intent intent = new Intent();
                 intent.setClass(AnnouncementActivity.this,SettingActivity.class);
-                startActivity(intent);
+                intent.putExtra("class","AnnouncementActivity");
+                startActivityForResult(intent,0);
                 break;
         }
     }

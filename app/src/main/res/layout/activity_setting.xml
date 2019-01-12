@@ -12,44 +12,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
+        android:background="#FFF"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="50dp">
         <TextView
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
            android:layout_alignParentLeft="true"
            android:gravity="center_vertical"
-            android:textSize="21sp"
+            android:textSize="19sp"
             android:textColor="#000"
             android:text="消息免打扰"
             android:layout_width="wrap_content"
-            android:layout_height="55dp" />
+            android:layout_height="50dp" />
         <com.zcw.togglebutton.ToggleButton
             android:id="@+id/toggle_message_avoid"
             android:layout_marginRight="10dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_width="70dp"
-            android:layout_height="40dp" />
+            android:layout_width="60dp"
+            android:layout_height="30dp" />
     </RelativeLayout>
 
     <LinearLayout
+        android:background="#FFF"
         android:id="@+id/ll_clear_cookie"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="50dp">
         <TextView
             android:paddingLeft="10dp"
             android:layout_gravity="left"
             android:gravity="center_vertical"
-            android:textSize="21sp"
+            android:textSize="19sp"
             android:textColor="#000"
             android:text="清空消息记录"
             android:layout_width="match_parent"
-            android:layout_height="55dp" />
+            android:layout_height="50dp" />
 
     </LinearLayout>
 </LinearLayout>

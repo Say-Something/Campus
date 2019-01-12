@@ -48,7 +48,8 @@ public class ApprovalActivity extends AppCompatActivity implements View.OnClickL
             case R.id.button_setting :
                 Intent intent = new Intent();
                 intent.setClass(ApprovalActivity.this,SettingActivity.class);
-                startActivity(intent);
+                intent.putExtra("class","ApprovalActivity");
+                startActivityForResult(intent,0);
                 break;
         }
     }

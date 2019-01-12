@@ -48,7 +48,8 @@ public class CardManagementActivity extends AppCompatActivity implements View.On
             case R.id.button_setting :
                 Intent intent = new Intent();
                 intent.setClass(CardManagementActivity.this,SettingActivity.class);
-                startActivity(intent);
+                intent.putExtra("class","CardManagementActivity");
+                startActivityForResult(intent,0);
                 break;
         }
     }

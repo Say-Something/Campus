@@ -1,10 +1,13 @@
 package com.example.administrator.campus;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,23 +20,53 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private FrameLayout mContentLayout;//下方内容
     private ToggleButton toggleButton;
     public static boolean messageAvoid_status = false;
+    private String className = null;
+    private SharedPreferences.Editor editor;
+    private SharedPreferences sp;
+    private LinearLayout ll_clear_cookie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         initTitle();
         toggleButton = findViewById(R.id.toggle_message_avoid);
+        ll_clear_cookie = findViewById(R.id.ll_clear_cookie);
+        ll_clear_cookie.setOnClickListener(this);
+        sp = this.getPreferences(Context.MODE_PRIVATE);
+        editor = sp.edit();
+        className = getIntent().getStringExtra("class");
+        if (!className.isEmpty()& className!=null) {
+            setToggleButton();
+        }
         toggleButton.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(boolean on) {
                 if ((on == true)) {
-                   Toast.makeText(SettingActivity.this,"打开",Toast.LENGTH_SHORT).show();
+                    if(!className.isEmpty()& className!=null) {
+                        Toast.makeText(SettingActivity.this,  "消息通知打开",Toast.LENGTH_SHORT).show();
+                        editor.putBoolean(className,true);
+                        editor.commit();
+                    }
                 } else {
-                    Toast.makeText(SettingActivity.this,"关闭",Toast.LENGTH_SHORT).show();
+                    if (!className.isEmpty()& className!=null) {
+                        Toast.makeText(SettingActivity.this,"消息通知关闭",Toast.LENGTH_SHORT).show();
+                        editor.putBoolean(className,false);
+                        editor.commit();
+                    }
                 }
             }
         });
     }
+
+    private void setToggleButton() {
+        messageAvoid_status = sp.getBoolean(className, false);
+        if(messageAvoid_status) {
+            toggleButton.toggleOn();
+        }else {
+            toggleButton.toggleOff();
+        }
+    }
+
     private void initTitle() {
         mTitleTextView = findViewById(R.id.text_title);
         mTitleTextView.setText("通知设置");
@@ -52,6 +85,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.button_backward :
                 finish();
                 break;
+            case  R.id.ll_clear_cookie :
+                Toast.makeText(SettingActivity.this,"清空成功",Toast.LENGTH_SHORT).show();
         }
     }
 }
