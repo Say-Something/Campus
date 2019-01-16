@@ -14,6 +14,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -181,6 +182,22 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         campus_rv.setLayoutManager(gridLayoutManager);
         MyRecyclerViewAdapter myRecyclerViewAdapter = new MyRecyclerViewAdapter(campusItemList);
         campus_rv.setAdapter(myRecyclerViewAdapter);
+        campus_rv.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
     }
     private void refreshNotice() {
         transaction.setNotice( sp.getBoolean("TransactionActivity", false));
