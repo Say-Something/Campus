@@ -1,6 +1,7 @@
 package com.example.administrator.campus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,24 +25,27 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private SharedPreferences.Editor editor;
     private SharedPreferences sp;
     private LinearLayout ll_clear_cookie;
+    private Intent intent ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         initTitle();
+        intent= new Intent();
+        intent.setAction("action.refreshActivity");
         toggleButton = findViewById(R.id.toggle_message_avoid);
         ll_clear_cookie = findViewById(R.id.ll_clear_cookie);
         ll_clear_cookie.setOnClickListener(this);
-        sp = this.getPreferences(Context.MODE_PRIVATE);
+        sp = getSharedPreferences("Keeping",MODE_PRIVATE);
         editor = sp.edit();
         className = getIntent().getStringExtra("class");
-        if (!className.isEmpty()& className!=null) {
+        if (className!=null) {
             setToggleButton();
         }
         toggleButton.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(boolean on) {
-                if ((on == true)) {
+                if (on) {
                     if(!className.isEmpty()& className!=null) {
                         Toast.makeText(SettingActivity.this,  "消息通知打开",Toast.LENGTH_SHORT).show();
                         editor.putBoolean(className,true);
@@ -54,10 +58,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                         editor.commit();
                     }
                 }
+                sendBroadcast(intent);
             }
         });
     }
-
     private void setToggleButton() {
         messageAvoid_status = sp.getBoolean(className, false);
         if(messageAvoid_status) {

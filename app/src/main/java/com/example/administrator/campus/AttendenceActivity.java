@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class AttendanceActivity extends AppCompatActivity implements View.OnClickListener {
+public class AttendenceActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mTitleTextView;//标题文本
     private Button mBackwardbButton;//返回键
     private Button mSettingButton;//设置键
@@ -36,7 +35,7 @@ public class AttendanceActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        CacheActivity.finishSingleActivity(AttendanceActivity.this);
+        CacheActivity.finishSingleActivity(AttendenceActivity.this);
     }
 
     @Override
@@ -47,8 +46,8 @@ public class AttendanceActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.button_setting :
                 Intent intent = new Intent();
-                intent.setClass(AttendanceActivity.this,SettingActivity.class);
-                intent.putExtra("class","AttendanceActivity");
+                intent.setClass(AttendenceActivity.this,SettingActivity.class);
+                intent.putExtra("class","AttendenceActivity");
                 startActivityForResult(intent,0);
                 break;
         }

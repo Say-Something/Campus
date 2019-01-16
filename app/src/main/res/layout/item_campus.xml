@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_campus_title"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/item_campus_iv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="5dp"
+        android:padding="3dp"
+        android:src="@mipmap/icon_personal_attendance" />
+        <LinearLayout
+            android:visibility="visible"
+            android:background="#FFF"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/title_line_iv"
+                android:visibility="visible"
+                android:src="@mipmap/blue_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/item_campus_tv"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center"
+        android:padding="2dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000"
+        android:text="文字文字"
+        />
+        </LinearLayout>
+    </LinearLayout>

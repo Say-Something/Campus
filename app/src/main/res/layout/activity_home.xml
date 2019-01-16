@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeActivity">
     <include layout="@layout/layout_title"></include>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
     <FrameLayout
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/fl_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,17 +22,19 @@
             android:layout_height="match_parent">
         </ListView>
         </FrameLayout>
-    <FrameLayout
-        android:visibility="gone"
-        android:id="@+id/fl_campus"
+    <LinearLayout
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:id="@+id/ll_campus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/line">
-        <TextView
-            android:text="校园"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/campus_rv"
+            android:background="#FFF"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="match_parent"/>
+    </LinearLayout>
     <FrameLayout
         android:visibility="gone"
         android:id="@+id/fl_mine"
@@ -57,6 +53,7 @@
         android:layout_above="@+id/bottom_ll"
         />
     <LinearLayout
+        android:baselineAligned="false"
         android:layout_marginBottom="0dp"
         android:id="@+id/bottom_ll"
         android:layout_width="match_parent"
@@ -104,5 +101,4 @@
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
-    </FrameLayout>
 </LinearLayout>
