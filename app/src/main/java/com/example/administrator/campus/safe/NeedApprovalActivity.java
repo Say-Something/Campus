@@ -48,7 +48,7 @@ public class NeedApprovalActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_backward :
+            case R.id.safe_button_backward :
                 finish();
                 break;
             case R.id.safe_button_more ://跳转审批记录

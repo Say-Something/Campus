@@ -6,4 +6,193 @@
     android:layout_height="match_parent"
     tools:context=".safe.AttendanceApplyActivity">
     <include layout="@layout/campus_layout_title"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/ll_table_leave_apply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/rl_student_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000"
+            android:text="学生姓名"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/iv_student_name"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/select_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_student_name"
+            android:layout_centerVertical="true"
+            android:hint="@string/student_name"
+            android:layout_toLeftOf="@id/iv_student_name"
+            android:layout_marginRight="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/rl_apply_stype"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:textColor="#000"
+                android:text="请假类型"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:focusable="false"
+                android:clickable="false"
+                android:id="@+id/iv_apply_stype"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/select_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_student_stype"
+                android:layout_centerVertical="true"
+                android:hint="@string/type_leave"
+                android:layout_toLeftOf="@id/iv_apply_stype"
+                android:layout_marginRight="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/rl_start_time"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:textColor="#000"
+                android:text="开始时间"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:focusable="false"
+                android:clickable="false"
+                android:id="@+id/iv_start_time"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/select_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_start_time"
+                android:layout_centerVertical="true"
+                android:hint="@string/start_time"
+                android:layout_toLeftOf="@id/iv_start_time"
+                android:layout_marginRight="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/rl_over_time"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:textColor="#000"
+                android:text="结束时间"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:focusable="false"
+                android:clickable="false"
+                android:id="@+id/iv_over_time"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/select_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_over_time"
+                android:layout_centerVertical="true"
+                android:hint="@string/over_time"
+                android:layout_toLeftOf="@id/iv_over_time"
+                android:layout_marginRight="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/rl_reason_apply"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:id="@+id/tv_reason_apply"
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:textColor="#000"
+                android:text="请假原因"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_apply_reason"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:layout_centerVertical="true"
+                android:hint="@string/over_time"
+                android:layout_toRightOf="@id/tv_reason_apply"
+                android:layout_alignParentRight="true"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </RelativeLayout>
+        <Button
+            android:background="#08F"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/bt_apply"
+            android:gravity="center"
+            android:text="提交申请"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </LinearLayout>

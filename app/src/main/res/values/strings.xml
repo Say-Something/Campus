@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Campus</string>
+    <string name="app_name">校园足迹教师</string>
+    <string name="student_name">选择人员 (必填)</string>
+    <string name="type_leave">选择类型 (必填)</string>
+    <string name="start_time">请选择 (必填)</string>
+    <string name="over_time">请选择 (必填)</string>
+    <string name="reason_apply">请选择 (必填)</string>
 </resources>

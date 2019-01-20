@@ -44,7 +44,7 @@ public class PersonalAttdanceActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_backward :
+            case R.id.safe_button_backward :
                 finish();
                 break;
 

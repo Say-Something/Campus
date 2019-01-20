@@ -46,7 +46,7 @@ public class CardLossReportActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_backward :
+            case R.id.safe_button_backward :
                 finish();
                 break;
 
