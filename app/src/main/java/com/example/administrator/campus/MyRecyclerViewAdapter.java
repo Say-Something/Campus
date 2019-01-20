@@ -88,15 +88,34 @@ private CampusHolder campusHolder;
             textView.setText(campusItemList.get(position).getItemName());
             textView.setTextColor(Color.GRAY);
         }
-
     }
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if(position==6||position==9) {
             LinearLayout title_ll = holder.itemView.findViewById(R.id.ll_campus_title);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1); // , 1是可选写的
             lp.setMargins(0, 50, 0, 0);
             title_ll.setLayoutParams(lp);
+        }
+        if(campusItemList.get(position).getType()==TYPE_CAMPUS) {
+            if(onItemClickListener!=null) {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onItemClickListener.onItemClick(holder.itemView,holder.getLayoutPosition());
+
+                    }
+                });
+            }
+            if(onItemLongClickListener!=null) {
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        onItemLongClickListener.onItemLongClick(holder.itemView,holder.getLayoutPosition());
+                        return false;
+                    }
+                });
+            }
         }
     }
     @Override
@@ -117,5 +136,21 @@ private CampusHolder campusHolder;
             return TYPE_CAMPUS_TITLE;
         }
     }
+    private OnItemClickListener onItemClickListener;
+    private OnItemLongClickListener onItemLongClickListener;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        onItemClickListener= listener;
+    }
+    public void setOnItemLongClickListener(OnItemLongClickListener listener){
+        onItemLongClickListener=listener;
+    }
+    public interface OnItemClickListener {
+        void onItemClick(View v,int position);
+    }
+
+    public interface OnItemLongClickListener {
+        void onItemLongClick(View v,int position);
+    }
+
 }
 

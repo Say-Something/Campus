@@ -4,6 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AttendanceActivity">
-   <include layout="@layout/layout_title"/>
+    tools:context=".safe.PersonalLeaveActivity">
+    <include layout="@layout/campus_layout_title"/>
 </LinearLayout>

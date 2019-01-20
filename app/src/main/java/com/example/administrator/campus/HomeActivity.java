@@ -5,16 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,10 +23,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.campus.myclass.AnnouncementAndNoticeActivity;
+import com.example.administrator.campus.myclass.MyTimeTableActivity;
+import com.example.administrator.campus.myclass.PublishHomeworkActivity;
+import com.example.administrator.campus.myclass.PublishNoticeActivity;
+import com.example.administrator.campus.myclass.SearchAttendanceActivity;
+import com.example.administrator.campus.myclass.SearchTimeTableActivity;
+import com.example.administrator.campus.pay.CardLossReportActivity;
+import com.example.administrator.campus.pay.CardRechargeActivity;
+import com.example.administrator.campus.safe.AttendanceApplyActivity;
+import com.example.administrator.campus.safe.ClassAttdanceActivity;
+import com.example.administrator.campus.safe.NeedApprovalActivity;
+import com.example.administrator.campus.safe.PersonalAttdanceActivity;
+import com.example.administrator.campus.safe.PersonalLeaveActivity;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     LinearLayout bottom_ll;
@@ -181,30 +189,89 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         GridLayoutManager gridLayoutManager = new GridLayoutManager (this,3);
         campus_rv.setLayoutManager(gridLayoutManager);
         MyRecyclerViewAdapter myRecyclerViewAdapter = new MyRecyclerViewAdapter(campusItemList);
-        campus_rv.setAdapter(myRecyclerViewAdapter);
-        campus_rv.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        myRecyclerViewAdapter.setOnItemClickListener(new MyRecyclerViewAdapter.OnItemClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
-            }
+            public void onItemClick(View v, int position) {
+//                Toast.makeText(HomeActivity.this,"点击了第 "+position+" 个item",Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 1:
+                        //需我审批
+                        intent.setClass(HomeActivity.this, NeedApprovalActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        //请假录入
+                        intent.setClass(HomeActivity.this, AttendanceApplyActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        //"班级考勤"
+                        intent.setClass(HomeActivity.this, ClassAttdanceActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        //"个人考勤"
+                        intent.setClass(HomeActivity.this, PersonalAttdanceActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
+                        //"个人请假"
+                        intent.setClass(HomeActivity.this, PersonalLeaveActivity.class);
+                        startActivity(intent);
+                        break;
 
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
+                    case 7:
+                        //"卡片充值"
+                        intent.setClass(HomeActivity.this, CardRechargeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 8:
+                        //"卡片挂失"
+                        intent.setClass(HomeActivity.this, CardLossReportActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 10:
+                        //"我的课表"
+                        intent.setClass(HomeActivity.this, MyTimeTableActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 11:
+                        //"发布作业"
+                        intent.setClass(HomeActivity.this, PublishHomeworkActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 12:
+                        //"通知公告"
+                        intent.setClass(HomeActivity.this, AnnouncementAndNoticeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 13:
+                        //"发布通知"
+                        intent.setClass(HomeActivity.this, PublishNoticeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 14:
+                        //"查询课表"
+                        intent.setClass(HomeActivity.this, SearchTimeTableActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 15:
+                        //"查询出勤"
+                        intent.setClass(HomeActivity.this, SearchAttendanceActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
+        campus_rv.setAdapter(myRecyclerViewAdapter);
+
     }
     private void refreshNotice() {
         transaction.setNotice( sp.getBoolean("TransactionActivity", false));
         approval .setNotice( sp.getBoolean("ApprovalActivity", false));
         cardManagement.setNotice( sp.getBoolean("CardManagementActivity", false));
         announcement.setNotice( sp.getBoolean("AnnouncementActivity", false));
-        attendence.setNotice( sp.getBoolean("AttendenceActivity", false));
+        attendence.setNotice( sp.getBoolean("AttendanceActivity", false));
     }
 
 
@@ -224,7 +291,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private Boolean getAttendenceNotice() {
-        return sp.getBoolean("AttendenceActivity", false);
+        return sp.getBoolean("AttendanceActivity", false);
     }
 
     /*
@@ -234,6 +301,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
         case R.id.message_bt:
+            mTitleTextView.setText("消息");
             message_bt.setBackgroundResource(R.drawable.bottom_main_selected);
             campus_bt.setBackgroundResource(R.drawable.bottom_search_normal);
             mine_bt.setBackgroundResource(R.drawable.bottom_more_normal);
@@ -242,6 +310,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             fl_mine.setVisibility(View.GONE);
             break;
         case R.id.campus_bt:
+            //之后根据地图定位获取学校名称
+            mTitleTextView.setText("江西省电子信息技师学院");
             campus_bt.setBackgroundResource(R.drawable.bottom_search_selected);
             message_bt.setBackgroundResource(R.drawable.bottom_main_normal);
             mine_bt.setBackgroundResource(R.drawable.bottom_more_normal);
@@ -250,6 +320,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             fl_mine.setVisibility(View.GONE);
             break;
         case R.id.mine_bt:
+            mTitleTextView.setText("我");
             mine_bt.setBackgroundResource(R.drawable.bottom_more_selected);
             campus_bt.setBackgroundResource(R.drawable.bottom_search_normal);
             message_bt.setBackgroundResource(R.drawable.bottom_main_normal);
@@ -259,12 +330,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             break;
         }
     }
+    private Intent intent = new Intent() ;
     /*
      * 监听消息界面ListView Item的点击事件
      * */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Intent intent = new Intent() ;
+
         switch (position) {
             case 0:
                 //交易记录
@@ -288,7 +360,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 4:
                 //每日出勤
-                intent.setClass(HomeActivity.this, AttendenceActivity.class);
+                intent.setClass(HomeActivity.this, AttendanceActivity.class);
                 startActivity(intent);
                 break;
         }

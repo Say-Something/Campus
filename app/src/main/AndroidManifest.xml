@@ -47,14 +47,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AttendenceActivity"
+            android:name=".AttendanceActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".TitleActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".SettingActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".TitleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".safe.AttendanceApplyActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".safe.ClassAttdanceActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".safe.NeedApprovalActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".safe.PersonalAttdanceActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".safe.PersonalLeaveActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".pay.CardLossReportActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".pay.CardRechargeActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.AnnouncementAndNoticeActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.MyTimeTableActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.PublishHomeworkActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.PublishNoticeActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.SearchAttendanceActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".myclass.SearchTimeTableActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

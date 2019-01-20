@@ -49,13 +49,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                     if(!className.isEmpty()& className!=null) {
                         Toast.makeText(SettingActivity.this,  "消息通知打开",Toast.LENGTH_SHORT).show();
                         editor.putBoolean(className,true);
-                        editor.commit();
+                        editor.apply();
                     }
                 } else {
                     if (!className.isEmpty()& className!=null) {
                         Toast.makeText(SettingActivity.this,"消息通知关闭",Toast.LENGTH_SHORT).show();
                         editor.putBoolean(className,false);
-                        editor.commit();
+                        editor.apply();
                     }
                 }
                 sendBroadcast(intent);
